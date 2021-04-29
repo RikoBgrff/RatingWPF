@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,41 +22,107 @@ namespace Rating
     public partial class MainWindow : Window
     {
         public int instance = 0;
+        public Uri halfStarSource = new Uri(@"halfstar.png", UriKind.Relative);
+        public Uri starSource = new Uri(@"star.png", UriKind.Relative);
+        public Uri emptyStarSource = new Uri(@"emptystar.png", UriKind.Relative);
         public MainWindow()
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void Rater(Image image)
         {
-
-        }
-
-        private void Star1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-           
             switch (instance)
             {
                 case 0:
                     {
-                        Star1.Source  = new BitmapImage(new Uri("emptystar.png"));
+                        image.Source = new BitmapImage(halfStarSource);
                         instance = 1;
                         break;
                     }
                 case 1:
                     {
-                        Star1.Source = new BitmapImage(new Uri("halfstar.png")); 
+                        image.Source = new BitmapImage(starSource);
                         instance = 2;
                         break;
                     }
                 case 2:
                     {
-                        Star1.Source = new BitmapImage(new Uri("star.png"));
+                        image.Source = new BitmapImage(emptyStarSource);
                         instance = 0;
                         break;
                     }
             }
+        }
+        private void Star1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            string star = Star2.Source.ToString();
+            string starSourcee = new BitmapImage(starSource).ToString();
+            string halfStarSourcee = new BitmapImage(halfStarSource).ToString();
+            if (star!=starSourcee||star==halfStarSourcee)
+            {
+                Star2.Source = new BitmapImage(emptyStarSource);
+                Star3.Source = new BitmapImage(emptyStarSource);
+                Star4.Source = new BitmapImage(emptyStarSource);
+                Star5.Source = new BitmapImage(emptyStarSource);
+            }
+            Rater(Star1);
 
+        }
+
+        private void Star2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            string star = Star3.Source.ToString();
+            string starSourcee = new BitmapImage(starSource).ToString();
+            string halfStarSourcee = new BitmapImage(halfStarSource).ToString();
+            if (star != starSourcee || star == halfStarSourcee)
+            {
+                Star3.Source = new BitmapImage(emptyStarSource);
+                Star4.Source = new BitmapImage(emptyStarSource);
+                Star5.Source = new BitmapImage(emptyStarSource);
+            }
+            Star1.Source = new BitmapImage(starSource);
+            Rater(Star2);
+        }
+
+        private void Star3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            string star = Star4.Source.ToString();
+            string starSourcee = new BitmapImage(starSource).ToString();
+            string halfStarSourcee = new BitmapImage(halfStarSource).ToString();
+            if (star != starSourcee || star == halfStarSourcee)
+            {
+                Star4.Source = new BitmapImage(emptyStarSource);
+                Star5.Source = new BitmapImage(emptyStarSource);
+            }
+
+            Star1.Source = new BitmapImage(starSource);
+            Star2.Source = new BitmapImage(starSource);
+            Rater(Star3);
+        }
+
+        private void Star4_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            string star = Star5.Source.ToString();
+            string starSourcee = new BitmapImage(starSource).ToString();
+            string halfStarSourcee = new BitmapImage(halfStarSource).ToString();
+            if (star != starSourcee || star == halfStarSourcee)
+            {
+                Star4.Source = new BitmapImage(emptyStarSource);
+                Star5.Source = new BitmapImage(emptyStarSource);
+            }
+            Star1.Source = new BitmapImage(starSource);
+            Star2.Source = new BitmapImage(starSource);
+            Star3.Source = new BitmapImage(starSource);
+            Rater(Star4);
+        }
+
+        private void Star5_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Star1.Source = new BitmapImage(starSource);
+            Star2.Source = new BitmapImage(starSource);
+            Star3.Source = new BitmapImage(starSource);
+            Star4.Source = new BitmapImage(starSource);
+            Rater(Star5);
         }
     }
 }

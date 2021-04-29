@@ -11,11 +11,11 @@
     <Grid>
         <!--<Image gif:ImageBehavior.AnimatedSource="mario.gif" />-->
         <StackPanel Orientation="Horizontal">
-            <Image Name="Star1" Source="emptystar.png" Width="60" MouseLeftButtonDown="Star1_MouseLeftButtonDown"/>
-            <Image Name="Star2" Source="emptystar.png" Width="60" />
-            <Image Name="Star3" Source="emptystar.png" Width="60" />
-            <Image Name="Star4" Source="emptystar.png" Width="60" />
-            <Image Name="Star5" Source="emptystar.png" Width="60" />
+            <Image Name="Star1" Source="emptystar.png" Width="60" MouseLeftButtonDown="Star1_MouseLeftButtonDown" Margin="240,0,0,0"/>
+            <Image Name="Star2" Source="emptystar.png" Width="60" MouseLeftButtonDown="Star2_MouseLeftButtonDown" />
+            <Image Name="Star3" Source="emptystar.png" Width="60" MouseLeftButtonDown="Star3_MouseLeftButtonDown" />
+            <Image Name="Star4" Source="emptystar.png" Width="60" MouseLeftButtonDown="Star4_MouseLeftButtonDown" />
+            <Image Name="Star5" Source="emptystar.png" Width="60" MouseLeftButtonDown="Star5_MouseLeftButtonDown" />
         </StackPanel>
     </Grid>
 </Window>
